@@ -1,862 +1,1637 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>RTIS — Retail Technology & Installation Services</title>
-<style>
-:root{
-  --navy:#0D2B45;
-  --navy2:#163A5F;
-  --orange:#E67E22;
-  --orange2:#F39C12;
-  --white:#FFFFFF;
-  --light:#F7F9FC;
-  --light2:#EEF3F8;
-  --border:#E0EAF4;
-  --gray:#6B7280;
-  --dark:#1A2535;
-  --text:#374151;
-}
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{font-family:'Segoe UI',Arial,sans-serif;color:var(--text);background:var(--white);}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RTIS — Retail Technology & Installation Services</title>
+  <style>
+    :root {
+      --navy: #0D2B45;
+      --navy2: #163A5F;
+      --orange: #E67E22;
+      --orange2: #F39C12;
+      --white: #FFFFFF;
+      --light: #F7F9FC;
+      --light2: #EEF3F8;
+      --border: #E0EAF4;
+      --gray: #6B7280;
+      --dark: #1A2535;
+      --text: #374151;
+    }
 
-/* ── NAV ── */
-nav{
-  position:fixed;top:0;width:100%;z-index:1000;
-  background:var(--white);
-  border-bottom:1px solid var(--border);
-  padding:0 5%;
-  display:flex;align-items:center;justify-content:space-between;
-  height:72px;
-  box-shadow:0 2px 16px rgba(0,0,0,0.06);
-}
-.logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
-.logo-badge{
-  background:var(--navy);color:var(--white);
-  font-weight:900;font-size:1.2rem;letter-spacing:3px;
-  padding:8px 14px;border-radius:4px;
-}
-.logo-badge span{color:var(--orange);}
-.logo-tagline{font-size:0.72rem;color:var(--gray);line-height:1.4;max-width:180px;}
-.logo-tagline strong{display:block;color:var(--navy);font-size:0.82rem;}
-nav ul{list-style:none;display:flex;gap:32px;align-items:center;}
-nav ul a{color:var(--dark);text-decoration:none;font-size:0.88rem;font-weight:500;transition:color .2s;position:relative;}
-nav ul a:hover{color:var(--orange);}
-nav ul a.active::after{content:'';position:absolute;bottom:-4px;left:0;width:100%;height:2px;background:var(--orange);}
-.nav-cta{
-  background:var(--orange)!important;color:var(--white)!important;
-  padding:10px 22px;border-radius:4px;font-weight:700!important;
-  transition:background .2s!important;
-}
-.nav-cta:hover{background:var(--orange2)!important;}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-/* ── HERO ── */
-#hero{
-  min-height:100vh;
-  background:var(--white);
-  display:flex;align-items:center;
-  padding:120px 5% 80px;
-  position:relative;overflow:hidden;
-}
-.hero-bg-shape{
-  position:absolute;right:0;top:0;
-  width:50%;height:100%;
-  background:linear-gradient(135deg,var(--light) 0%,var(--light2) 100%);
-  clip-path:polygon(15% 0,100% 0,100% 100%,0 100%);
-  z-index:0;
-}
-.hero-inner{position:relative;z-index:1;max-width:640px;}
-.hero-badge{
-  display:inline-flex;align-items:center;gap:8px;
-  background:rgba(230,126,34,0.08);
-  border:1px solid rgba(230,126,34,0.2);
-  color:var(--orange);
-  padding:7px 16px;border-radius:20px;
-  font-size:0.78rem;font-weight:700;letter-spacing:1.5px;
-  text-transform:uppercase;margin-bottom:28px;
-}
-.hero-badge::before{content:'';width:6px;height:6px;background:var(--orange);border-radius:50%;}
-#hero h1{
-  font-size:clamp(2.2rem,4.5vw,3.8rem);
-  color:var(--navy);font-weight:800;
-  line-height:1.12;margin-bottom:24px;
-}
-#hero h1 span{color:var(--orange);}
-#hero p{
-  color:var(--gray);font-size:1.05rem;
-  line-height:1.8;margin-bottom:40px;max-width:540px;
-}
-.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:52px;}
-.btn-primary{
-  background:var(--orange);color:var(--white);
-  padding:14px 32px;border-radius:4px;
-  text-decoration:none;font-weight:700;font-size:0.92rem;
-  transition:all .2s;display:inline-block;
-  border:2px solid var(--orange);
-}
-.btn-primary:hover{background:var(--orange2);border-color:var(--orange2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(230,126,34,0.25);}
-.btn-outline{
-  border:2px solid var(--navy);color:var(--navy);
-  padding:14px 32px;border-radius:4px;
-  text-decoration:none;font-weight:700;font-size:0.92rem;
-  transition:all .2s;display:inline-block;
-}
-.btn-outline:hover{background:var(--navy);color:var(--white);}
-.hero-stats{display:flex;gap:40px;flex-wrap:wrap;}
-.hero-stat{}
-.hero-stat-num{font-size:1.8rem;font-weight:900;color:var(--navy);line-height:1;}
-.hero-stat-num span{color:var(--orange);}
-.hero-stat-label{font-size:0.78rem;color:var(--gray);margin-top:4px;letter-spacing:0.5px;}
+    html {
+      scroll-behavior: smooth;
+    }
 
-/* ── CLIENTS STRIP ── */
-#clients{
-  background:var(--navy);
-  padding:22px 5%;
-  display:flex;align-items:center;gap:40px;flex-wrap:wrap;
-}
-.clients-label{color:rgba(255,255,255,0.4);font-size:0.72rem;letter-spacing:2px;text-transform:uppercase;white-space:nowrap;}
-.clients-div{width:1px;height:20px;background:rgba(255,255,255,0.1);}
-.clients-list{display:flex;gap:36px;flex-wrap:wrap;align-items:center;}
-.client-tag{color:rgba(255,255,255,0.55);font-size:0.82rem;font-weight:600;letter-spacing:0.5px;}
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      color: var(--text);
+      background: var(--white);
+    }
 
-/* ── ORANGE ACCENT BAR ── */
-.orange-bar{height:5px;background:linear-gradient(90deg,var(--orange),var(--orange2));}
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 0 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+    }
 
-/* ── SECTIONS ── */
-section{padding:96px 5%;}
-.sec-tag{
-  display:inline-block;color:var(--orange);
-  font-size:0.72rem;font-weight:700;
-  letter-spacing:2.5px;text-transform:uppercase;
-  margin-bottom:12px;
-}
-h2{font-size:clamp(1.8rem,3vw,2.6rem);color:var(--navy);font-weight:800;line-height:1.2;margin-bottom:16px;}
-.sec-sub{color:var(--gray);font-size:1rem;line-height:1.75;max-width:600px;}
-.sec-center{text-align:center;}
-.sec-center .sec-sub{margin:0 auto;}
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
 
-/* ── SERVICES ── */
-#services{background:var(--white);}
-.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2px;margin-top:60px;border:2px solid var(--border);border-radius:10px;overflow:hidden;}
-.svc-card{
-  background:var(--white);padding:44px 36px;
-  transition:all .25s;position:relative;
-  border-right:2px solid var(--border);
-  border-bottom:2px solid var(--border);
-}
-.svc-card:hover{background:var(--light);z-index:1;}
-.svc-card::before{
-  content:'';position:absolute;top:0;left:0;
-  width:4px;height:0;background:var(--orange);
-  transition:height .3s;
-}
-.svc-card:hover::before{height:100%;}
-.svc-num{
-  font-size:0.72rem;font-weight:700;color:var(--orange);
-  letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;
-}
-.svc-icon{font-size:2rem;margin-bottom:16px;}
-.svc-card h3{font-size:1.1rem;color:var(--navy);font-weight:700;margin-bottom:12px;}
-.svc-card p{color:var(--gray);font-size:0.88rem;line-height:1.75;}
-.svc-link{
-  display:inline-flex;align-items:center;gap:6px;
-  color:var(--orange);font-weight:700;font-size:0.82rem;
-  margin-top:20px;text-decoration:none;letter-spacing:0.5px;
-  text-transform:uppercase;
-}
-.svc-link:hover{gap:10px;}
+    .logo-badge {
+      background: var(--navy);
+      color: var(--white);
+      font-weight: 900;
+      font-size: 1.2rem;
+      letter-spacing: 3px;
+      padding: 8px 14px;
+      border-radius: 4px;
+    }
 
-/* ── URGENT SUPPORT BANNER ── */
-#urgent{
-  background:var(--navy);
-  padding:72px 5%;
-}
-.urgent-inner{
-  display:grid;grid-template-columns:1fr auto;
-  gap:60px;align-items:center;max-width:1100px;margin:0 auto;
-}
-#urgent .sec-tag{color:var(--orange);}
-#urgent h2{color:var(--white);}
-#urgent p{color:#8AAEC8;font-size:1rem;line-height:1.75;margin-top:16px;}
-.urgent-features{display:flex;flex-direction:column;gap:14px;margin-top:28px;}
-.urgent-feat{display:flex;align-items:center;gap:12px;color:rgba(255,255,255,0.85);font-size:0.9rem;}
-.urgent-feat::before{content:'✓';color:var(--orange);font-weight:900;font-size:1rem;flex-shrink:0;}
-.urgent-cta{
-  background:var(--orange);color:var(--white);
-  padding:16px 36px;border-radius:4px;
-  text-decoration:none;font-weight:700;font-size:0.95rem;
-  white-space:nowrap;transition:all .2s;display:inline-block;
-  border:2px solid var(--orange);
-}
-.urgent-cta:hover{background:transparent;color:var(--orange);}
+    .logo-badge span {
+      color: var(--orange);
+    }
 
-/* ── ABOUT ── */
-#about{background:var(--light);}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
-.about-img{
-  background:var(--navy);border-radius:10px;
-  padding:48px 40px;position:relative;overflow:hidden;
-}
-.about-img::before{
-  content:'';position:absolute;
-  top:-80px;right:-80px;width:240px;height:240px;
-  border-radius:50%;
-  background:radial-gradient(circle,rgba(230,126,34,0.15) 0%,transparent 70%);
-}
-.about-metric{margin-bottom:28px;padding-bottom:28px;border-bottom:1px solid rgba(255,255,255,0.08);}
-.about-metric:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none;}
-.metric-label{color:#8AAEC8;font-size:0.78rem;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;}
-.metric-bar-row{display:flex;align-items:center;gap:14px;}
-.metric-bar-bg{flex:1;height:6px;background:rgba(255,255,255,0.08);border-radius:3px;overflow:hidden;}
-.metric-bar-fill{height:100%;background:var(--orange);border-radius:3px;}
-.metric-val{color:var(--orange);font-weight:800;font-size:0.9rem;width:36px;text-align:right;}
-.about-content .sec-sub{margin-bottom:28px;}
-.about-points{list-style:none;display:flex;flex-direction:column;gap:14px;margin-bottom:36px;}
-.about-points li{
-  display:flex;align-items:flex-start;gap:12px;
-  font-size:0.9rem;color:var(--text);line-height:1.6;
-}
-.about-points li::before{
-  content:'';width:8px;height:8px;
-  background:var(--orange);border-radius:50%;
-  margin-top:6px;flex-shrink:0;
-}
+    .logo-tagline {
+      font-size: 0.72rem;
+      color: var(--gray);
+      line-height: 1.4;
+      max-width: 180px;
+    }
 
-/* ── PROCESS ── */
-#process{background:var(--white);}
-.process-grid{
-  display:grid;grid-template-columns:repeat(4,1fr);
-  margin-top:60px;
-  border:1px solid var(--border);border-radius:10px;overflow:hidden;
-}
-.step{
-  padding:40px 32px;
-  border-right:1px solid var(--border);
-  position:relative;
-  transition:background .2s;
-}
-.step:hover{background:var(--light);}
-.step:last-child{border-right:none;}
-.step-num{
-  font-size:3rem;font-weight:900;
-  color:var(--orange);opacity:0.15;
-  line-height:1;margin-bottom:16px;
-}
-.step h3{font-size:0.95rem;color:var(--navy);font-weight:700;margin-bottom:10px;}
-.step p{color:var(--gray);font-size:0.85rem;line-height:1.7;}
+    .logo-tagline strong {
+      display: block;
+      color: var(--navy);
+      font-size: 0.82rem;
+    }
 
-/* ── SECTORS ── */
-#sectors{background:var(--light);}
-.sectors-grid{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:14px;margin-top:48px;
-}
-.sector{
-  background:var(--white);
-  border:1.5px solid var(--border);border-radius:8px;
-  padding:22px 20px;
-  display:flex;align-items:center;gap:12px;
-  font-size:0.88rem;font-weight:600;color:var(--navy);
-  transition:all .2s;
-}
-.sector:hover{border-color:var(--orange);transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.07);}
-.sector-icon{font-size:1.3rem;flex-shrink:0;}
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
 
-/* ── WHY RTIS ── */
-#why{background:var(--white);}
-.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px;}
-.why-card{
-  border:1.5px solid var(--border);border-radius:10px;
-  padding:36px 30px;transition:all .25s;
-}
-.why-card:hover{border-color:var(--orange);box-shadow:0 8px 32px rgba(230,126,34,0.08);}
-.why-icon{
-  width:52px;height:52px;
-  background:rgba(230,126,34,0.08);
-  border-radius:10px;
-  display:flex;align-items:center;justify-content:center;
-  font-size:1.4rem;margin-bottom:20px;
-}
-.why-card h3{font-size:0.95rem;color:var(--navy);font-weight:700;margin-bottom:10px;}
-.why-card p{color:var(--gray);font-size:0.85rem;line-height:1.7;}
+    nav ul a {
+      color: var(--dark);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      transition: color .2s;
+      position: relative;
+    }
 
-/* ── CONTACT ── */
-#contact{background:var(--light);}
-.contact-wrap{
-  display:grid;grid-template-columns:1fr 1.4fr;
-  gap:80px;align-items:start;
-  max-width:1100px;margin:0 auto;
-}
-.contact-info{margin-top:32px;display:flex;flex-direction:column;gap:20px;}
-.c-item{display:flex;align-items:center;gap:16px;}
-.c-icon{
-  width:48px;height:48px;
-  background:var(--white);border:1.5px solid var(--border);
-  border-radius:8px;display:flex;align-items:center;
-  justify-content:center;font-size:1.1rem;flex-shrink:0;
-  box-shadow:0 2px 8px rgba(0,0,0,0.05);
-}
-.c-text a{color:var(--dark);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color .2s;}
-.c-text a:hover{color:var(--orange);}
-.c-text span{display:block;font-size:0.72rem;color:var(--gray);letter-spacing:1px;text-transform:uppercase;margin-bottom:2px;}
+    nav ul a:hover {
+      color: var(--orange);
+    }
 
-/* FORM */
-.contact-form-wrap{
-  background:var(--white);
-  border-radius:12px;
-  padding:44px 40px;
-  border:1px solid var(--border);
-  box-shadow:0 4px 24px rgba(0,0,0,0.06);
-}
-.form-title{font-size:1.1rem;font-weight:700;color:var(--navy);margin-bottom:6px;}
-.form-sub{font-size:0.85rem;color:var(--gray);margin-bottom:28px;}
-.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
-.form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:0;}
-.form-group.full{grid-column:1/-1;}
-.form-group label{font-size:0.78rem;font-weight:700;color:var(--navy);letter-spacing:0.5px;text-transform:uppercase;}
-.form-group input,
-.form-group select,
-.form-group textarea{
-  border:1.5px solid var(--border);
-  background:var(--white);color:var(--dark);
-  padding:12px 16px;border-radius:6px;
-  font-size:0.88rem;outline:none;width:100%;
-  font-family:inherit;transition:border-color .2s;
-}
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus{border-color:var(--orange);}
-.form-group input::placeholder,
-.form-group textarea::placeholder{color:#B0BAC6;}
-.form-group textarea{resize:vertical;min-height:100px;}
-.form-submit{
-  width:100%;margin-top:20px;
-  padding:15px 32px;
-  background:var(--navy);color:var(--white);
-  border:none;border-radius:6px;
-  font-weight:700;font-size:0.95rem;
-  cursor:pointer;transition:all .2s;
-  letter-spacing:0.5px;
-}
-.form-submit:hover{background:var(--orange);}
-.form-note{font-size:0.75rem;color:var(--gray);text-align:center;margin-top:12px;}
-.success-msg{
-  display:none;background:#ECFDF5;border:1px solid #6EE7B7;
-  border-radius:8px;padding:16px 20px;margin-top:16px;
-  color:#065F46;font-size:0.88rem;font-weight:600;text-align:center;
-}
+    nav ul a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--orange);
+    }
 
-/* ── FOOTER ── */
-footer{
-  background:var(--navy);
-  padding:60px 5% 32px;
-}
-.footer-top{
-  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;
-  gap:48px;margin-bottom:48px;
-  padding-bottom:40px;
-  border-bottom:1px solid rgba(255,255,255,0.08);
-}
-.footer-brand{}
-.footer-logo{display:flex;align-items:center;gap:10px;margin-bottom:16px;}
-.footer-logo-badge{
-  background:var(--orange);color:var(--white);
-  font-weight:900;font-size:1rem;letter-spacing:3px;
-  padding:6px 12px;border-radius:4px;
-}
-.footer-desc{color:#8AAEC8;font-size:0.85rem;line-height:1.7;max-width:280px;}
-.footer-col h4{color:var(--white);font-size:0.85rem;font-weight:700;margin-bottom:16px;letter-spacing:0.5px;}
-.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
-.footer-col ul a{color:#8AAEC8;text-decoration:none;font-size:0.82rem;transition:color .2s;}
-.footer-col ul a:hover{color:var(--orange);}
-.footer-bottom{
-  display:flex;align-items:center;justify-content:space-between;
-  flex-wrap:wrap;gap:16px;
-}
-.footer-bottom p{color:#3D5166;font-size:0.78rem;}
-.footer-bottom-links{display:flex;gap:24px;}
-.footer-bottom-links a{color:#3D5166;text-decoration:none;font-size:0.78rem;transition:color .2s;}
-.footer-bottom-links a:hover{color:var(--orange);}
+    .nav-cta {
+      background: var(--orange) !important;
+      color: var(--white) !important;
+      padding: 10px 22px;
+      border-radius: 4px;
+      font-weight: 700 !important;
+      transition: background .2s !important;
+    }
 
-/* MOBILE */
-@media(max-width:900px){
-  .hero-bg-shape{display:none;}
-  .about-grid,.contact-wrap,.urgent-inner{grid-template-columns:1fr;gap:40px;}
-  .process-grid,.why-grid{grid-template-columns:1fr;}
-  .step{border-right:none;border-bottom:1px solid var(--border);}
-  .footer-top{grid-template-columns:1fr 1fr;}
-  .form-grid{grid-template-columns:1fr;}
-  nav ul{display:none;}
-  .about-img{display:none;}
-}
-</style>
+    .nav-cta:hover {
+      background: var(--orange2) !important;
+    }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      background: var(--white);
+      display: flex;
+      align-items: center;
+      padding: 120px 5% 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg-shape {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--light) 0%, var(--light2) 100%);
+      clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%);
+      z-index: 0;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 640px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(230, 126, 34, 0.08);
+      border: 1px solid rgba(230, 126, 34, 0.2);
+      color: var(--orange);
+      padding: 7px 16px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--orange);
+      border-radius: 50%;
+    }
+
+    #hero h1 {
+      font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+      color: var(--navy);
+      font-weight: 800;
+      line-height: 1.12;
+      margin-bottom: 24px;
+    }
+
+    #hero h1 span {
+      color: var(--orange);
+    }
+
+    #hero p {
+      color: var(--gray);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin-bottom: 40px;
+      max-width: 540px;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 52px;
+    }
+
+    .btn-primary {
+      background: var(--orange);
+      color: var(--white);
+      padding: 14px 32px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.92rem;
+      transition: all .2s;
+      display: inline-block;
+      border: 2px solid var(--orange);
+    }
+
+    .btn-primary:hover {
+      background: var(--orange2);
+      border-color: var(--orange2);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(230, 126, 34, 0.25);
+    }
+
+    .btn-outline {
+      border: 2px solid var(--navy);
+      color: var(--navy);
+      padding: 14px 32px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.92rem;
+      transition: all .2s;
+      display: inline-block;
+    }
+
+    .btn-outline:hover {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .hero-stat {}
+
+    .hero-stat-num {
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: var(--navy);
+      line-height: 1;
+    }
+
+    .hero-stat-num span {
+      color: var(--orange);
+    }
+
+    .hero-stat-label {
+      font-size: 0.78rem;
+      color: var(--gray);
+      margin-top: 4px;
+      letter-spacing: 0.5px;
+    }
+
+    /* ── CLIENTS STRIP ── */
+    #clients {
+      background: var(--navy);
+      padding: 22px 5%;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .clients-label {
+      color: rgba(255, 255, 255, 0.4);
+      font-size: 0.72rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .clients-div {
+      width: 1px;
+      height: 20px;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .clients-list {
+      display: flex;
+      gap: 36px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .client-tag {
+      color: rgba(255, 255, 255, 0.55);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    /* ── ORANGE ACCENT BAR ── */
+    .orange-bar {
+      height: 5px;
+      background: linear-gradient(90deg, var(--orange), var(--orange2));
+    }
+
+    /* ── SECTIONS ── */
+    section {
+      padding: 96px 5%;
+    }
+
+    .sec-tag {
+      display: inline-block;
+      color: var(--orange);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      color: var(--navy);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .sec-sub {
+      color: var(--gray);
+      font-size: 1rem;
+      line-height: 1.75;
+      max-width: 600px;
+    }
+
+    .sec-center {
+      text-align: center;
+    }
+
+    .sec-center .sec-sub {
+      margin: 0 auto;
+    }
+
+    /* ── SERVICES ── */
+    #services {
+      background: var(--white);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2px;
+      margin-top: 60px;
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .svc-card {
+      background: var(--white);
+      padding: 44px 36px;
+      transition: all .25s;
+      position: relative;
+      border-right: 2px solid var(--border);
+      border-bottom: 2px solid var(--border);
+    }
+
+    .svc-card:hover {
+      background: var(--light);
+      z-index: 1;
+    }
+
+    .svc-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 0;
+      background: var(--orange);
+      transition: height .3s;
+    }
+
+    .svc-card:hover::before {
+      height: 100%;
+    }
+
+    .svc-num {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--orange);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .svc-icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+    }
+
+    .svc-card h3 {
+      font-size: 1.1rem;
+      color: var(--navy);
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .svc-card p {
+      color: var(--gray);
+      font-size: 0.88rem;
+      line-height: 1.75;
+    }
+
+    .svc-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--orange);
+      font-weight: 700;
+      font-size: 0.82rem;
+      margin-top: 20px;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .svc-link:hover {
+      gap: 10px;
+    }
+
+    /* ── URGENT SUPPORT BANNER ── */
+    #urgent {
+      background: var(--navy);
+      padding: 72px 5%;
+    }
+
+    .urgent-inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 60px;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    #urgent .sec-tag {
+      color: var(--orange);
+    }
+
+    #urgent h2 {
+      color: var(--white);
+    }
+
+    #urgent p {
+      color: #8AAEC8;
+      font-size: 1rem;
+      line-height: 1.75;
+      margin-top: 16px;
+    }
+
+    .urgent-features {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .urgent-feat {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 0.9rem;
+    }
+
+    .urgent-feat::before {
+      content: '✓';
+      color: var(--orange);
+      font-weight: 900;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .urgent-cta {
+      background: var(--orange);
+      color: var(--white);
+      padding: 16px 36px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      white-space: nowrap;
+      transition: all .2s;
+      display: inline-block;
+      border: 2px solid var(--orange);
+    }
+
+    .urgent-cta:hover {
+      background: transparent;
+      color: var(--orange);
+    }
+
+    /* ── ABOUT ── */
+    #about {
+      background: var(--light);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-img {
+      background: var(--navy);
+      border-radius: 10px;
+      padding: 48px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-img::before {
+      content: '';
+      position: absolute;
+      top: -80px;
+      right: -80px;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(230, 126, 34, 0.15) 0%, transparent 70%);
+    }
+
+    .about-metric {
+      margin-bottom: 28px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .about-metric:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .metric-label {
+      color: #8AAEC8;
+      font-size: 0.78rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .metric-bar-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .metric-bar-bg {
+      flex: 1;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .metric-bar-fill {
+      height: 100%;
+      background: var(--orange);
+      border-radius: 3px;
+    }
+
+    .metric-val {
+      color: var(--orange);
+      font-weight: 800;
+      font-size: 0.9rem;
+      width: 36px;
+      text-align: right;
+    }
+
+    .about-content .sec-sub {
+      margin-bottom: 28px;
+    }
+
+    .about-points {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 36px;
+    }
+
+    .about-points li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.9rem;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .about-points li::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: var(--orange);
+      border-radius: 50%;
+      margin-top: 6px;
+      flex-shrink: 0;
+    }
+
+    /* ── PROCESS ── */
+    #process {
+      background: var(--white);
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      margin-top: 60px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .step {
+      padding: 40px 32px;
+      border-right: 1px solid var(--border);
+      position: relative;
+      transition: background .2s;
+    }
+
+    .step:hover {
+      background: var(--light);
+    }
+
+    .step:last-child {
+      border-right: none;
+    }
+
+    .step-num {
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--orange);
+      opacity: 0.15;
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    .step h3 {
+      font-size: 0.95rem;
+      color: var(--navy);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .step p {
+      color: var(--gray);
+      font-size: 0.85rem;
+      line-height: 1.7;
+    }
+
+    /* ── SECTORS ── */
+    #sectors {
+      background: var(--light);
+    }
+
+    .sectors-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px;
+      margin-top: 48px;
+    }
+
+    .sector {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      padding: 22px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--navy);
+      transition: all .2s;
+    }
+
+    .sector:hover {
+      border-color: var(--orange);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+    }
+
+    .sector-icon {
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+
+    /* ── WHY RTIS ── */
+    #why {
+      background: var(--white);
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+    }
+
+    .why-card {
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      padding: 36px 30px;
+      transition: all .25s;
+    }
+
+    .why-card:hover {
+      border-color: var(--orange);
+      box-shadow: 0 8px 32px rgba(230, 126, 34, 0.08);
+    }
+
+    .why-icon {
+      width: 52px;
+      height: 52px;
+      background: rgba(230, 126, 34, 0.08);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+    }
+
+    .why-card h3 {
+      font-size: 0.95rem;
+      color: var(--navy);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .why-card p {
+      color: var(--gray);
+      font-size: 0.85rem;
+      line-height: 1.7;
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      background: var(--light);
+    }
+
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 80px;
+      align-items: start;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .contact-info {
+      margin-top: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .c-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .c-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .c-text a {
+      color: var(--dark);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color .2s;
+    }
+
+    .c-text a:hover {
+      color: var(--orange);
+    }
+
+    .c-text span {
+      display: block;
+      font-size: 0.72rem;
+      color: var(--gray);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+
+    /* FORM */
+    .contact-form-wrap {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 44px 40px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+    }
+
+    .form-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+
+    .form-sub {
+      font-size: 0.85rem;
+      color: var(--gray);
+      margin-bottom: 28px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 0;
+    }
+
+    .form-group.full {
+      grid-column: 1/-1;
+    }
+
+    .form-group label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      border: 1.5px solid var(--border);
+      background: var(--white);
+      color: var(--dark);
+      padding: 12px 16px;
+      border-radius: 6px;
+      font-size: 0.88rem;
+      outline: none;
+      width: 100%;
+      font-family: inherit;
+      transition: border-color .2s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--orange);
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: #B0BAC6;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .form-submit {
+      width: 100%;
+      margin-top: 20px;
+      padding: 15px 32px;
+      background: var(--navy);
+      color: var(--white);
+      border: none;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all .2s;
+      letter-spacing: 0.5px;
+    }
+
+    .form-submit:hover {
+      background: var(--orange);
+    }
+
+    .form-note {
+      font-size: 0.75rem;
+      color: var(--gray);
+      text-align: center;
+      margin-top: 12px;
+    }
+
+    .success-msg {
+      display: none;
+      background: #ECFDF5;
+      border: 1px solid #6EE7B7;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-top: 16px;
+      color: #065F46;
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      padding: 60px 5% 32px;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .footer-brand {}
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .footer-logo-badge {
+      background: var(--orange);
+      color: var(--white);
+      font-weight: 900;
+      font-size: 1rem;
+      letter-spacing: 3px;
+      padding: 6px 12px;
+      border-radius: 4px;
+    }
+
+    .footer-desc {
+      color: #8AAEC8;
+      font-size: 0.85rem;
+      line-height: 1.7;
+      max-width: 280px;
+    }
+
+    .footer-col h4 {
+      color: var(--white);
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      letter-spacing: 0.5px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-col ul a {
+      color: #8AAEC8;
+      text-decoration: none;
+      font-size: 0.82rem;
+      transition: color .2s;
+    }
+
+    .footer-col ul a:hover {
+      color: var(--orange);
+    }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-bottom p {
+      color: #3D5166;
+      font-size: 0.78rem;
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-bottom-links a {
+      color: #3D5166;
+      text-decoration: none;
+      font-size: 0.78rem;
+      transition: color .2s;
+    }
+
+    .footer-bottom-links a:hover {
+      color: var(--orange);
+    }
+
+    /* MOBILE */
+    @media(max-width:900px) {
+      .hero-bg-shape {
+        display: none;
+      }
+
+      .about-grid,
+      .contact-wrap,
+      .urgent-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .process-grid,
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .step {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      nav ul {
+        display: none;
+      }
+
+      .about-img {
+        display: none;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<!-- NAV -->
-<nav>
-  <a class="logo" href="#">
-    <div class="logo-badge">RT<span>IS</span></div>
-    <div class="logo-tagline">
-      <strong>Retail Technology & Installation</strong>
-      Services
-    </div>
-  </a>
-  <ul>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#process">Our Approach</a></li>
-    <li><a href="#sectors">Sectors</a></li>
-    <li><a href="#contact" class="nav-cta">Contact Us</a></li>
-  </ul>
-</nav>
-
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-bg-shape"></div>
-  <div class="hero-inner">
-    <div class="hero-badge">UK Retail Installation Specialists</div>
-    <h1>Experienced Teams.<br/><span>Reliable Delivery.</span><br/>Every Store. Every Time.</h1>
-    <p>RTIS provides expert retail merchandising, ESL installation technicians, and urgent store support staff across the UK — delivering with precision, compliance, and zero disruption to your trading operations.</p>
-    <div class="hero-btns">
-      <a href="#contact" class="btn-primary">Request Support</a>
-      <a href="#services" class="btn-outline">Our Services</a>
-    </div>
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <div class="hero-stat-num">99<span>%+</span></div>
-        <div class="hero-stat-label">Operational Accuracy</div>
+  <!-- NAV -->
+  <nav>
+    <a class="logo" href="#">
+      <div class="logo-badge">RT<span>IS</span></div>
+      <div class="logo-tagline">
+        <strong>Retail Technology & Installation</strong>
+        Services
       </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">0</div>
-        <div class="hero-stat-label">Trading Disruptions</div>
+    </a>
+    <ul>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#process">Our Approach</a></li>
+      <li><a href="#sectors">Sectors</a></li>
+      <li><a href="#contact" class="nav-cta">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg-shape"></div>
+    <div class="hero-inner">
+      <div class="hero-badge">UK Retail Installation Specialists</div>
+      <h1>Experienced Teams.<br /><span>Reliable Delivery.</span><br />Every Store. Every Time.</h1>
+      <p>RTIS provides expert retail merchandising, ESL installation technicians, and urgent store support staff across
+        the UK — delivering with precision, compliance, and zero disruption to your trading operations.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-primary">Request Support</a>
+        <a href="#services" class="btn-outline">Our Services</a>
       </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">95<span>%+</span></div>
-        <div class="hero-stat-label">On-Time Completion</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num"><span>UK</span></div>
-        <div class="hero-stat-label">Nationwide Coverage</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CLIENTS STRIP -->
-<div id="clients">
-  <span class="clients-label">Sectors Served</span>
-  <div class="clients-div"></div>
-  <div class="clients-list">
-    <span class="client-tag">Grocery & Supermarkets</span>
-    <span class="client-tag">Convenience Retail</span>
-    <span class="client-tag">ESL Suppliers</span>
-    <span class="client-tag">Fashion & Apparel</span>
-    <span class="client-tag">Health & Pharmacy</span>
-    <span class="client-tag">Off Licences & Wine</span>
-  </div>
-</div>
-
-<!-- SERVICES -->
-<section id="services">
-  <div class="sec-center">
-    <div class="sec-tag">What We Deliver</div>
-    <h2>Specialist Retail Installation Services</h2>
-    <p class="sec-sub">From planogram execution to full ESL rollouts and urgent store cover — RTIS provides the experienced teams retailers and suppliers depend on.</p>
-  </div>
-  <div class="services-grid">
-
-    <div class="svc-card">
-      <div class="svc-num">Service 01</div>
-      <div class="svc-icon">🛍️</div>
-      <h3>Retail Merchandising</h3>
-      <p>Our experienced merchandising teams work closely with retailers to execute planograms, replenish stock, reposition product ranges, and deliver store resets — accurately, on schedule, and aligned to your brand standards. We cover nationwide with teams who understand retail environments from the inside.</p>
-      <a href="#contact" class="svc-link">Enquire →</a>
-    </div>
-
-    <div class="svc-card">
-      <div class="svc-num">Service 02</div>
-      <div class="svc-icon">🏷️</div>
-      <h3>ESL Installation</h3>
-      <p>Secure your pricing and enhance the customer experience with Electronic Shelf Label installations delivered by trained technicians. We work within your agreed overnight or weekend windows, completing full store rollouts with zero impact on live trading. Every installation includes compliance documentation and digital go-live sign-off as standard.</p>
-      <a href="#contact" class="svc-link">Enquire →</a>
-    </div>
-
-    <div class="svc-card">
-      <div class="svc-num">Service 03</div>
-      <div class="svc-icon">⚡</div>
-      <h3>Urgent Store Support</h3>
-      <p>When demand spikes, store openings accelerate, or your usual resource falls short — RTIS delivers. We provide experienced retail staff at short notice to cover peak periods, seasonal surges, new store setups, and emergency requirements without the recruitment headache. Available nationwide, rapidly deployed.</p>
-      <a href="#contact" class="svc-link">Enquire →</a>
-    </div>
-
-    <div class="svc-card">
-      <div class="svc-num">Service 04</div>
-      <div class="svc-icon">🏪</div>
-      <h3>New Store Setup & Relocations</h3>
-      <p>Opening a new store or relocating an existing one demands precision and speed. Our dedicated teams manage the full setup process — from fixture installation and shelf building to product placement and final compliance checks — keeping your launch on schedule and your brand standards intact.</p>
-      <a href="#contact" class="svc-link">Enquire →</a>
-    </div>
-
-    <div class="svc-card">
-      <div class="svc-num">Service 05</div>
-      <div class="svc-icon">🔄</div>
-      <h3>Store Resets & Remodels</h3>
-      <p>Keep your selling space fresh, functional, and commercially effective. RTIS teams execute store and department resets quickly — when and where you need them. Whether it's a full category reset, a seasonal remodel, or a range rationalisation, we deliver with the accuracy your operations require.</p>
-      <a href="#contact" class="svc-link">Enquire →</a>
-    </div>
-
-    <div class="svc-card">
-      <div class="svc-num">Service 06</div>
-      <div class="svc-icon">📋</div>
-      <h3>Compliance & Documentation</h3>
-      <p>Every RTIS deployment comes with full compliance documentation, go-live sign-off records, and audit-ready reports. We maintain a zero compliance failure record across every project — giving you complete confidence in handover and protecting your business against regulatory exposure.</p>
-      <a href="#contact" class="svc-link">Enquire →</a>
-    </div>
-
-  </div>
-</section>
-
-<!-- URGENT BANNER -->
-<section id="urgent">
-  <div class="urgent-inner">
-    <div>
-      <div class="sec-tag">Urgent Resource</div>
-      <h2>Need Store Support at Short Notice?</h2>
-      <p>RTIS maintains a ready network of experienced retail installation and merchandising professionals available for rapid deployment across the UK. We take the operational pressure off your team — so your stores never stop performing.</p>
-      <div class="urgent-features">
-        <div class="urgent-feat">Rapid deployment — respond within 24 hours</div>
-        <div class="urgent-feat">Experienced teams — no induction lag</div>
-        <div class="urgent-feat">Overnight and weekend availability as standard</div>
-        <div class="urgent-feat">Nationwide coverage across England, Scotland & Wales</div>
-        <div class="urgent-feat">Fully compliant with site health & safety requirements</div>
-      </div>
-    </div>
-    <a href="#contact" class="urgent-cta">Request Urgent Support →</a>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="about-grid">
-    <div class="about-img">
-      <div style="color:#8AAEC8;font-size:0.72rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:24px;">Performance Record</div>
-      <div class="about-metric">
-        <div class="metric-label">On-Time Project Completion</div>
-        <div class="metric-bar-row">
-          <div class="metric-bar-bg"><div class="metric-bar-fill" style="width:95%"></div></div>
-          <div class="metric-val">95%</div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num">99<span>%+</span></div>
+          <div class="hero-stat-label">Operational Accuracy</div>
         </div>
-      </div>
-      <div class="about-metric">
-        <div class="metric-label">Operational Accuracy Rate</div>
-        <div class="metric-bar-row">
-          <div class="metric-bar-bg"><div class="metric-bar-fill" style="width:99%"></div></div>
-          <div class="metric-val">99%</div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">0</div>
+          <div class="hero-stat-label">Trading Disruptions</div>
         </div>
-      </div>
-      <div class="about-metric">
-        <div class="metric-label">Zero Disruption Delivery</div>
-        <div class="metric-bar-row">
-          <div class="metric-bar-bg"><div class="metric-bar-fill" style="width:100%"></div></div>
-          <div class="metric-val">100%</div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">95<span>%+</span></div>
+          <div class="hero-stat-label">On-Time Completion</div>
         </div>
-      </div>
-      <div class="about-metric">
-        <div class="metric-label">Compliance Sign-Off Rate</div>
-        <div class="metric-bar-row">
-          <div class="metric-bar-bg"><div class="metric-bar-fill" style="width:100%"></div></div>
-          <div class="metric-val">100%</div>
-        </div>
-      </div>
-      <div style="margin-top:28px;padding-top:28px;border-top:1px solid rgba(255,255,255,0.08);">
-        <div style="color:var(--orange);font-weight:900;font-size:1.6rem;">Multi-Site Capability</div>
-        <div style="color:#8AAEC8;font-size:0.83rem;margin-top:6px;line-height:1.6;">Coordinating concurrent deployments across multiple locations simultaneously — with live reporting at every stage.</div>
-      </div>
-    </div>
-
-    <div class="about-content">
-      <div class="sec-tag">About RTIS</div>
-      <h2>Grounded in Retail. Built for Delivery.</h2>
-      <p class="sec-sub">RTIS was established by retail operations professionals with extensive hands-on experience delivering large-scale technology installations and merchandising programmes for major UK grocery and retail chains. We understand what it takes to execute in live retail environments — because we have done it, at scale, to the highest standards.</p>
-      <ul class="about-points">
-        <li>Proven track record delivering ESL rollouts across major UK supermarket estates, completed within agreed overnight and weekend windows without a single instance of live trading disruption</li>
-        <li>Experienced in coordinating large multi-disciplinary installation teams across multiple concurrent sites, maintaining consistent quality and compliance throughout</li>
-        <li>Deep working knowledge of retail compliance requirements, go-live sign-off processes, and Environmental Health Officer documentation standards</li>
-        <li>Merchandising expertise spanning planogram implementation, full range resets, new store setups, and seasonal remodels — delivered with precision and speed</li>
-        <li>A management team with commercial qualifications and operational expertise, bringing strategic clarity to every project we undertake</li>
-      </ul>
-      <a href="#contact" class="btn-primary" style="display:inline-block;">Work With Us →</a>
-    </div>
-  </div>
-</section>
-
-<!-- PROCESS -->
-<section id="process">
-  <div class="sec-center">
-    <div class="sec-tag">How We Work</div>
-    <h2>A Structured Approach to Every Project</h2>
-    <p class="sec-sub">Our proven methodology protects your timeline, your brand, and your customers at every stage of delivery.</p>
-  </div>
-  <div class="process-grid">
-    <div class="step">
-      <div class="step-num">01</div>
-      <h3>Scoping & Planning</h3>
-      <p>We review your full project requirements — site details, SLA windows, compliance obligations, and resource needs — before committing a single team member to site.</p>
-    </div>
-    <div class="step">
-      <div class="step-num">02</div>
-      <h3>Team Allocation</h3>
-      <p>The right technicians and merchandisers are matched to each project based on skills, location, and experience. Schedules are confirmed in advance with no last-minute changes.</p>
-    </div>
-    <div class="step">
-      <div class="step-num">03</div>
-      <h3>Deployment & Execution</h3>
-      <p>Our teams execute within your agreed windows — overnight, weekend, or daytime. Real-time progress updates keep all stakeholders informed throughout the installation.</p>
-    </div>
-    <div class="step">
-      <div class="step-num">04</div>
-      <h3>Sign-Off & Reporting</h3>
-      <p>Digital compliance sign-off, audit-ready project records, and a full completion report are delivered on conclusion of every engagement. No chasing. No gaps.</p>
-    </div>
-  </div>
-</section>
-
-<!-- SECTORS -->
-<section id="sectors">
-  <div class="sec-tag">Coverage</div>
-  <h2>Sectors & Environments We Serve</h2>
-  <p class="sec-sub">RTIS operates across the full UK retail landscape — supporting retailers, technology suppliers, and installation companies who need experienced, reliable teams on the ground.</p>
-  <div class="sectors-grid">
-    <div class="sector"><span class="sector-icon">🛒</span> Grocery & Supermarkets</div>
-    <div class="sector"><span class="sector-icon">🏪</span> Convenience & Symbol</div>
-    <div class="sector"><span class="sector-icon">🍷</span> Off Licences & Wine</div>
-    <div class="sector"><span class="sector-icon">💊</span> Health & Pharmacy</div>
-    <div class="sector"><span class="sector-icon">👗</span> Fashion & Apparel</div>
-    <div class="sector"><span class="sector-icon">🔌</span> Consumer Electronics</div>
-    <div class="sector"><span class="sector-icon">🏗️</span> DIY & Hardware</div>
-    <div class="sector"><span class="sector-icon">📦</span> ESL & POS Suppliers</div>
-    <div class="sector"><span class="sector-icon">🔧</span> Tech Deployment Firms</div>
-    <div class="sector"><span class="sector-icon">🏬</span> Retail Chains & Estates</div>
-  </div>
-</section>
-
-<!-- WHY RTIS -->
-<section id="why">
-  <div class="sec-center">
-    <div class="sec-tag">Why RTIS</div>
-    <h2>What Makes Us Different</h2>
-    <p class="sec-sub">We don't just place people in stores. We take ownership of the outcome — and our record speaks for itself.</p>
-  </div>
-  <div class="why-grid">
-    <div class="why-card">
-      <div class="why-icon">🎯</div>
-      <h3>Zero Disruption — Always</h3>
-      <p>Every project is planned around your trading hours. We maintain a flawless zero live-trading disruption record across every project we have delivered. This is not a target — it is our baseline.</p>
-    </div>
-    <div class="why-card">
-      <div class="why-icon">🕐</div>
-      <h3>Overnight & Weekend Ready</h3>
-      <p>Our teams are structured and resourced for out-of-hours delivery as standard. Overnight installs, weekend resets, early morning setups — we are where you need us, when you need us.</p>
-    </div>
-    <div class="why-card">
-      <div class="why-icon">📋</div>
-      <h3>Audit-Ready Documentation</h3>
-      <p>Compliance records, go-live sign-offs, and site documentation are produced for every engagement. You are always prepared for client and regulatory audits — with nothing left to chance.</p>
-    </div>
-    <div class="why-card">
-      <div class="why-icon">🔄</div>
-      <h3>Scalable Resource</h3>
-      <p>Whether you need two technicians for a single site or a coordinated team across twenty locations simultaneously, RTIS scales to meet your project requirements without compromising quality or compliance.</p>
-    </div>
-    <div class="why-card">
-      <div class="why-icon">📡</div>
-      <h3>Live Project Visibility</h3>
-      <p>You are never left waiting for updates. Clients receive real-time progress reporting across all active sites, with immediate escalation protocols if anything requires attention during deployment.</p>
-    </div>
-    <div class="why-card">
-      <div class="why-icon">🤝</div>
-      <h3>Single Point of Accountability</h3>
-      <p>A dedicated operations lead manages your project from initial scoping through to final sign-off. No handoffs. No confusion. Clear accountability at every stage of delivery.</p>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="contact-wrap">
-    <div>
-      <div class="sec-tag">Get In Touch</div>
-      <h2>Tell Us About Your Project</h2>
-      <p class="sec-sub">Whether you need experienced merchandising teams, ESL installation technicians, or urgent store support — we are ready to help. Complete the form and a member of our team will respond within 24 hours.</p>
-      <div class="contact-info">
-        <div class="c-item">
-          <div class="c-icon">📧</div>
-          <div class="c-text">
-            <span>Email</span>
-            <a href="mailto:info@rtis.co.uk">info@rtis.co.uk</a>
-          </div>
-        </div>
-        <div class="c-item">
-          <div class="c-icon">📍</div>
-          <div class="c-text">
-            <span>Location</span>
-            <a href="#">London, UK — Nationwide Coverage</a>
-          </div>
-        </div>
-        <div class="c-item">
-          <div class="c-icon">⚡</div>
-          <div class="c-text">
-            <span>Response Time</span>
-            <a href="#">Within 24 Hours</a>
-          </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num"><span>UK</span></div>
+          <div class="hero-stat-label">Nationwide Coverage</div>
         </div>
       </div>
     </div>
+  </section>
 
-    <div class="contact-form-wrap">
-      <div class="form-title">Submit an Enquiry</div>
-      <div class="form-sub">All fields marked are required. We treat all enquiries in strict confidence.</div>
-      <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-        <div class="form-grid">
-          <div class="form-group">
-            <label>Full Name *</label>
-            <input type="text" name="name" placeholder="Your full name" required/>
-          </div>
-          <div class="form-group">
-            <label>Contact Number *</label>
-            <input type="tel" name="phone" placeholder="Your phone number" required/>
-          </div>
-          <div class="form-group">
-            <label>Email Address *</label>
-            <input type="email" name="email" placeholder="Your email address" required/>
-          </div>
-          <div class="form-group">
-            <label>Company Name *</label>
-            <input type="text" name="company" placeholder="Your company name" required/>
-          </div>
-          <div class="form-group">
-            <label>Job Title</label>
-            <input type="text" name="jobtitle" placeholder="Your job title"/>
-          </div>
-          <div class="form-group">
-            <label>Service Required *</label>
-            <select name="service" required>
-              <option value="" disabled selected>Select a service</option>
-              <option>Retail Merchandising</option>
-              <option>ESL Installation</option>
-              <option>Urgent Store Support</option>
-              <option>New Store Setup</option>
-              <option>Store Reset / Remodel</option>
-              <option>Multi-Site Coordination</option>
-              <option>Other</option>
-            </select>
-          </div>
-          <div class="form-group full">
-            <label>Project Requirements *</label>
-            <textarea name="requirements" placeholder="Please describe your project — number of sites, locations, timeline, and any specific requirements..." required></textarea>
+  <!-- CLIENTS STRIP -->
+  <div id="clients">
+    <span class="clients-label">Sectors Served</span>
+    <div class="clients-div"></div>
+    <div class="clients-list">
+      <span class="client-tag">Grocery & Supermarkets</span>
+      <span class="client-tag">Convenience Retail</span>
+      <span class="client-tag">ESL Suppliers</span>
+      <span class="client-tag">Fashion & Apparel</span>
+      <span class="client-tag">Health & Pharmacy</span>
+      <span class="client-tag">Off Licences & Wine</span>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="sec-center">
+      <div class="sec-tag">What We Deliver</div>
+      <h2>Specialist Retail Installation Services</h2>
+      <p class="sec-sub">From planogram execution to full ESL rollouts and urgent store cover — RTIS provides the
+        experienced teams retailers and suppliers depend on.</p>
+    </div>
+    <div class="services-grid">
+
+      <div class="svc-card">
+        <div class="svc-icon">🛍️</div>
+        <h3>Retail Merchandising</h3>
+        <p>Our experienced merchandising teams work closely with retailers to execute planograms, replenish stock,
+          reposition product ranges, and deliver store resets — accurately, on schedule, and aligned to your brand
+          standards. We cover nationwide with teams who understand retail environments from the inside.</p>
+        <a href="#contact" class="svc-link">Enquire →</a>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-icon">🏷️</div>
+        <h3>ESL Installation</h3>
+        <p>Secure your pricing and enhance the customer experience with Electronic Shelf Label installations delivered
+          by trained technicians. We work within your agreed overnight or weekend windows, completing full store
+          rollouts with zero impact on live trading. Every installation includes compliance documentation and digital
+          go-live sign-off as standard.</p>
+        <a href="#contact" class="svc-link">Enquire →</a>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-icon">⚡</div>
+        <h3>Urgent Store Support</h3>
+        <p>When demand spikes, store openings accelerate, or your usual resource falls short — RTIS delivers. We provide
+          experienced retail staff at short notice to cover peak periods, seasonal surges, new store setups, and
+          emergency requirements without the recruitment headache. Available nationwide, rapidly deployed.</p>
+        <a href="#contact" class="svc-link">Enquire →</a>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-icon">🏪</div>
+        <h3>New Store Setup & Relocations</h3>
+        <p>Opening a new store or relocating an existing one demands precision and speed. Our dedicated teams manage the
+          full setup process — from fixture installation and shelf building to product placement and final compliance
+          checks — keeping your launch on schedule and your brand standards intact.</p>
+        <a href="#contact" class="svc-link">Enquire →</a>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-icon">🔄</div>
+        <h3>Store Resets & Remodels</h3>
+        <p>Keep your selling space fresh, functional, and commercially effective. RTIS teams execute store and
+          department resets quickly — when and where you need them. Whether it's a full category reset, a seasonal
+          remodel, or a range rationalisation, we deliver with the accuracy your operations require.</p>
+        <a href="#contact" class="svc-link">Enquire →</a>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-icon">📋</div>
+        <h3>Compliance & Documentation</h3>
+        <p>Every RTIS deployment comes with full compliance documentation, go-live sign-off records, and audit-ready
+          reports. We maintain a zero compliance failure record across every project — giving you complete confidence in
+          handover and protecting your business against regulatory exposure.</p>
+        <a href="#contact" class="svc-link">Enquire →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- URGENT BANNER -->
+  <section id="urgent">
+    <div class="urgent-inner">
+      <div>
+        <div class="sec-tag">Urgent Resource</div>
+        <h2>Need Store Support at Short Notice?</h2>
+        <p>RTIS maintains a ready network of experienced retail installation and merchandising professionals available
+          for rapid deployment across the UK. We take the operational pressure off your team — so your stores never stop
+          performing.</p>
+        <div class="urgent-features">
+          <div class="urgent-feat">Rapid deployment — respond within 24 hours</div>
+          <div class="urgent-feat">Experienced teams — no induction lag</div>
+          <div class="urgent-feat">Overnight and weekend availability as standard</div>
+          <div class="urgent-feat">Nationwide coverage across England, Scotland & Wales</div>
+          <div class="urgent-feat">Fully compliant with site health & safety requirements</div>
+        </div>
+      </div>
+      <a href="#contact" class="urgent-cta">Request Urgent Support →</a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-grid">
+      <div class="about-img">
+        <div style="color:#8AAEC8;font-size:0.72rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:24px;">
+          Performance Record</div>
+        <div class="about-metric">
+          <div class="metric-label">On-Time Project Completion</div>
+          <div class="metric-bar-row">
+            <div class="metric-bar-bg">
+              <div class="metric-bar-fill" style="width:95%"></div>
+            </div>
+            <div class="metric-val">95%</div>
           </div>
         </div>
-        <button type="submit" class="form-submit">Submit Enquiry →</button>
-        <p class="form-note">By submitting this form you agree to RTIS contacting you regarding your enquiry. We do not share your details with third parties.</p>
-        <div class="success-msg" id="successMsg">✓ Thank you — your enquiry has been received. We will respond within 24 hours.</div>
-      </form>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-top">
-    <div class="footer-brand">
-      <div class="footer-logo">
-        <div class="footer-logo-badge">RTIS</div>
+        <div class="about-metric">
+          <div class="metric-label">Operational Accuracy Rate</div>
+          <div class="metric-bar-row">
+            <div class="metric-bar-bg">
+              <div class="metric-bar-fill" style="width:99%"></div>
+            </div>
+            <div class="metric-val">99%</div>
+          </div>
+        </div>
+        <div class="about-metric">
+          <div class="metric-label">Zero Disruption Delivery</div>
+          <div class="metric-bar-row">
+            <div class="metric-bar-bg">
+              <div class="metric-bar-fill" style="width:100%"></div>
+            </div>
+            <div class="metric-val">100%</div>
+          </div>
+        </div>
+        <div class="about-metric">
+          <div class="metric-label">Compliance Sign-Off Rate</div>
+          <div class="metric-bar-row">
+            <div class="metric-bar-bg">
+              <div class="metric-bar-fill" style="width:100%"></div>
+            </div>
+            <div class="metric-val">100%</div>
+          </div>
+        </div>
+        <div style="margin-top:28px;padding-top:28px;border-top:1px solid rgba(255,255,255,0.08);">
+          <div style="color:var(--orange);font-weight:900;font-size:1.6rem;">Multi-Site Capability</div>
+          <div style="color:#8AAEC8;font-size:0.83rem;margin-top:6px;line-height:1.6;">Coordinating concurrent
+            deployments across multiple locations simultaneously — with live reporting at every stage.</div>
+        </div>
       </div>
-      <p class="footer-desc">Retail Technology & Installation Services. Experienced teams delivering merchandising, ESL installation, and urgent store support across the UK.</p>
-    </div>
-    <div class="footer-col">
-      <h4>Services</h4>
-      <ul>
-        <li><a href="#services">Retail Merchandising</a></li>
-        <li><a href="#services">ESL Installation</a></li>
-        <li><a href="#services">Urgent Store Support</a></li>
-        <li><a href="#services">Store Resets</a></li>
-        <li><a href="#services">New Store Setup</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Company</h4>
-      <ul>
-        <li><a href="#about">About RTIS</a></li>
-        <li><a href="#process">How We Work</a></li>
-        <li><a href="#sectors">Sectors</a></li>
-        <li><a href="#why">Why RTIS</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Contact</h4>
-      <ul>
-        <li><a href="mailto:info@rtis.co.uk">info@rtis.co.uk</a></li>
-        <li><a href="#contact">Submit Enquiry</a></li>
-        <li><a href="#">London, UK</a></li>
-        <li><a href="#">Nationwide Coverage</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>© 2025 RTIS — Retail Technology & Installation Services. All rights reserved.</p>
-    <div class="footer-bottom-links">
-      <a href="#">Privacy Policy</a>
-      <a href="#">Terms of Service</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </div>
-</footer>
 
-<script>
-// Form submission
-document.getElementById('contactForm').addEventListener('submit', async function(e){
-  e.preventDefault();
-  const btn = this.querySelector('.form-submit');
-  const msg = document.getElementById('successMsg');
-  btn.textContent = 'Sending...';
-  btn.disabled = true;
-  try {
-    const res = await fetch(this.action, {
-      method:'POST',
-      body: new FormData(this),
-      headers:{'Accept':'application/json'}
+      <div class="about-content">
+        <div class="sec-tag">About RTIS</div>
+        <h2>Grounded in Retail. Built for Delivery.</h2>
+        <p class="sec-sub">RTIS was established by retail operations professionals with extensive hands-on experience
+          delivering large-scale technology installations and merchandising programmes for major UK grocery and retail
+          chains. We understand what it takes to execute in live retail environments — because we have done it, at
+          scale, to the highest standards.</p>
+        <ul class="about-points">
+          <li>Proven track record delivering ESL rollouts across major UK supermarket estates, completed within agreed
+            overnight and weekend windows without a single instance of live trading disruption</li>
+          <li>Experienced in coordinating large multi-disciplinary installation teams across multiple concurrent sites,
+            maintaining consistent quality and compliance throughout</li>
+          <li>Deep working knowledge of retail compliance requirements, go-live sign-off processes, and Environmental
+            Health Officer documentation standards</li>
+          <li>Merchandising expertise spanning planogram implementation, full range resets, new store setups, and
+            seasonal remodels — delivered with precision and speed</li>
+          <li>A management team with commercial qualifications and operational expertise, bringing strategic clarity to
+            every project we undertake</li>
+        </ul>
+        <a href="#contact" class="btn-primary" style="display:inline-block;">Work With Us →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process">
+    <div class="sec-center">
+      <div class="sec-tag">How We Work</div>
+      <h2>A Structured Approach to Every Project</h2>
+      <p class="sec-sub">Our proven methodology protects your timeline, your brand, and your customers at every stage of
+        delivery.</p>
+    </div>
+    <div class="process-grid">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3>Scoping & Planning</h3>
+        <p>We review your full project requirements — site details, SLA windows, compliance obligations, and resource
+          needs — before committing a single team member to site.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h3>Team Allocation</h3>
+        <p>The right technicians and merchandisers are matched to each project based on skills, location, and
+          experience. Schedules are confirmed in advance with no last-minute changes.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h3>Deployment & Execution</h3>
+        <p>Our teams execute within your agreed windows — overnight, weekend, or daytime. Real-time progress updates
+          keep all stakeholders informed throughout the installation.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <h3>Sign-Off & Reporting</h3>
+        <p>Digital compliance sign-off, audit-ready project records, and a full completion report are delivered on
+          conclusion of every engagement. No chasing. No gaps.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTORS -->
+  <section id="sectors">
+    <div class="sec-tag">Coverage</div>
+    <h2>Sectors & Environments We Serve</h2>
+    <p class="sec-sub">RTIS operates across the full UK retail landscape — supporting retailers, technology suppliers,
+      and installation companies who need experienced, reliable teams on the ground.</p>
+    <div class="sectors-grid">
+      <div class="sector"><span class="sector-icon">🛒</span> Grocery & Supermarkets</div>
+      <div class="sector"><span class="sector-icon">🏪</span> Convenience & Symbol</div>
+      <div class="sector"><span class="sector-icon">🍷</span> Off Licences & Wine</div>
+      <div class="sector"><span class="sector-icon">💊</span> Health & Pharmacy</div>
+      <div class="sector"><span class="sector-icon">👗</span> Fashion & Apparel</div>
+      <div class="sector"><span class="sector-icon">🔌</span> Consumer Electronics</div>
+      <div class="sector"><span class="sector-icon">🏗️</span> DIY & Hardware</div>
+      <div class="sector"><span class="sector-icon">📦</span> ESL & POS Suppliers</div>
+      <div class="sector"><span class="sector-icon">🔧</span> Tech Deployment Firms</div>
+      <div class="sector"><span class="sector-icon">🏬</span> Retail Chains & Estates</div>
+    </div>
+  </section>
+
+  <!-- WHY RTIS -->
+  <section id="why">
+    <div class="sec-center">
+      <div class="sec-tag">Why RTIS</div>
+      <h2>What Makes Us Different</h2>
+      <p class="sec-sub">We don't just place people in stores. We take ownership of the outcome — and our record speaks
+        for itself.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">🎯</div>
+        <h3>Zero Disruption — Always</h3>
+        <p>Every project is planned around your trading hours. We maintain a flawless zero live-trading disruption
+          record across every project we have delivered. This is not a target — it is our baseline.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🕐</div>
+        <h3>Overnight & Weekend Ready</h3>
+        <p>Our teams are structured and resourced for out-of-hours delivery as standard. Overnight installs, weekend
+          resets, early morning setups — we are where you need us, when you need us.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">📋</div>
+        <h3>Audit-Ready Documentation</h3>
+        <p>Compliance records, go-live sign-offs, and site documentation are produced for every engagement. You are
+          always prepared for client and regulatory audits — with nothing left to chance.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🔄</div>
+        <h3>Scalable Resource</h3>
+        <p>Whether you need two technicians for a single site or a coordinated team across twenty locations
+          simultaneously, RTIS scales to meet your project requirements without compromising quality or compliance.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">📡</div>
+        <h3>Live Project Visibility</h3>
+        <p>You are never left waiting for updates. Clients receive real-time progress reporting across all active sites,
+          with immediate escalation protocols if anything requires attention during deployment.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🤝</div>
+        <h3>Single Point of Accountability</h3>
+        <p>A dedicated operations lead manages your project from initial scoping through to final sign-off. No handoffs.
+          No confusion. Clear accountability at every stage of delivery.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-wrap">
+      <div>
+        <div class="sec-tag">Get In Touch</div>
+        <h2>Tell Us About Your Project</h2>
+        <p class="sec-sub">Whether you need experienced merchandising teams, ESL installation technicians, or urgent
+          store support — we are ready to help. Complete the form and a member of our team will respond within 24 hours.
+        </p>
+        <div class="contact-info">
+          <div class="c-item">
+            <div class="c-icon">📧</div>
+            <div class="c-text">
+              <span>Email</span>
+              <a href="mailto:info@rtisuk.co.uk">info@rtisuk.co.uk</a>
+            </div>
+          </div>
+          <div class="c-item">
+            <div class="c-icon">📍</div>
+            <div class="c-text">
+              <span>Location</span>
+              <a href="#">London, UK — Nationwide Coverage</a>
+            </div>
+          </div>
+          <div class="c-item">
+            <div class="c-icon">⚡</div>
+            <div class="c-text">
+              <span>Response Time</span>
+              <a href="#">Within 24 Hours</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-wrap">
+        <div class="form-title">Submit an Enquiry</div>
+        <div class="form-sub">All fields marked are required. We treat all enquiries in strict confidence.</div>
+        <form id="contactForm">
+          <div class="form-grid">
+            <div class="form-group">
+              <label>Full Name *</label>
+              <input type="text" name="name" id="field_name" placeholder="Your full name" required />
+            </div>
+            <div class="form-group">
+              <label>Contact Number *</label>
+              <input type="tel" name="phone" id="field_phone" placeholder="Your phone number" required />
+            </div>
+            <div class="form-group">
+              <label>Email Address *</label>
+              <input type="email" name="email" id="field_email" placeholder="Your email address" required />
+            </div>
+            <div class="form-group">
+              <label>Company Name *</label>
+              <input type="text" name="company" id="field_company" placeholder="Your company name" required />
+            </div>
+            <div class="form-group">
+              <label>Job Title</label>
+              <input type="text" name="jobtitle" id="field_jobtitle" placeholder="Your job title" />
+            </div>
+            <div class="form-group">
+              <label>Service Required *</label>
+              <select name="service" id="field_service" required>
+                <option value="" disabled selected>Select a service</option>
+                <option>Retail Merchandising</option>
+                <option>ESL Installation</option>
+                <option>Urgent Store Support</option>
+                <option>New Store Setup</option>
+                <option>Store Reset / Remodel</option>
+                <option>Multi-Site Coordination</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group full">
+              <label>Project Requirements *</label>
+              <textarea name="requirements" id="field_requirements"
+                placeholder="Please describe your project — number of sites, locations, timeline, and any specific requirements..."
+                required></textarea>
+            </div>
+          </div>
+          <button type="submit" class="form-submit">Submit Enquiry →</button>
+          <p class="form-note">By submitting this form you agree to RTIS contacting you regarding your enquiry. We do
+            not share your details with third parties.</p>
+          <div class="success-msg" id="successMsg">✓ Thank you — your enquiry has been received. We will respond within
+            24 hours.</div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <div class="footer-logo-badge">RTIS</div>
+        </div>
+        <p class="footer-desc">Retail Technology & Installation Services. Experienced teams delivering merchandising,
+          ESL installation, and urgent store support across the UK.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Retail Merchandising</a></li>
+          <li><a href="#services">ESL Installation</a></li>
+          <li><a href="#services">Urgent Store Support</a></li>
+          <li><a href="#services">Store Resets</a></li>
+          <li><a href="#services">New Store Setup</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About RTIS</a></li>
+          <li><a href="#process">How We Work</a></li>
+          <li><a href="#sectors">Sectors</a></li>
+          <li><a href="#why">Why RTIS</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:info@rtisuk.co.uk">info@rtisuk.co.uk</a></li>
+          <li><a href="#contact">Submit Enquiry</a></li>
+          <li><a href="#">London, UK</a></li>
+          <li><a href="#">Nationwide Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 RTIS — Retail Technology & Installation Services. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const btn = this.querySelector('.form-submit');
+      const msg = document.getElementById('successMsg');
+
+      // Collect all form field values
+      const formData = {
+        name: document.getElementById('field_name').value.trim(),
+        email: document.getElementById('field_email').value.trim(),
+        phone: document.getElementById('field_phone').value.trim(),
+        company: document.getElementById('field_company').value.trim(),
+        job_title: document.getElementById('field_jobtitle').value.trim() || 'Not provided',
+        service: document.getElementById('field_service').value,
+        requirements: document.getElementById('field_requirements').value.trim()
+      };
+
+      // Simple client-side validation
+      if (!formData.name || !formData.email || !formData.phone ||
+        !formData.company || !formData.service || !formData.requirements) {
+        alert('Please fill in all required fields before submitting.');
+        return;
+      }
+
+      // Visual feedback — show sending state
+      const originalText = btn.textContent;
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+      btn.style.background = '#163A5F';
+
+      try {
+        // Send the email via our backend serverless function
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
+        });
+
+        if (response.ok) {
+          // Success — show thank-you message
+          msg.style.display = 'block';
+          this.reset();
+          btn.textContent = '✓ Sent Successfully';
+          btn.style.background = '#059669';
+
+          // Reset button after 5 seconds
+          setTimeout(() => {
+            btn.textContent = originalText;
+            btn.style.background = '';
+            btn.disabled = false;
+          }, 5000);
+        } else {
+          const errData = await response.json().catch(() => ({}));
+          throw new Error(errData.error || 'Server error');
+        }
+
+      } catch (error) {
+        console.error('Contact form submission error:', error);
+        btn.textContent = originalText;
+        btn.disabled = false;
+        btn.style.background = '';
+
+        alert(
+          'Something went wrong sending your enquiry.\n' +
+          'Please email us directly at info@rtisuk.co.uk\n\n' +
+          'Error: ' + (error.message || 'Unknown error')
+        );
+      }
     });
-    if(res.ok){
-      msg.style.display = 'block';
-      this.reset();
-      btn.textContent = '✓ Sent Successfully';
-      btn.style.background = '#059669';
-    } else {
-      btn.textContent = 'Submit Enquiry →';
-      btn.disabled = false;
-      alert('Something went wrong. Please email us directly at info@rtis.co.uk');
-    }
-  } catch(err){
-    btn.textContent = 'Submit Enquiry →';
-    btn.disabled = false;
-  }
-});
 
-// Active nav on scroll
-const sections = document.querySelectorAll('section[id]');
-window.addEventListener('scroll', ()=>{
-  let current = '';
-  sections.forEach(s=>{
-    if(window.scrollY >= s.offsetTop - 100) current = s.getAttribute('id');
-  });
-  document.querySelectorAll('nav ul a').forEach(a=>{
-    a.classList.remove('active');
-    if(a.getAttribute('href') === '#'+current) a.classList.add('active');
-  });
-});
-</script>
+    // ── ACTIVE NAV ON SCROLL ──
+    const sections = document.querySelectorAll('section[id]');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 100) current = s.getAttribute('id');
+      });
+      document.querySelectorAll('nav ul a').forEach(a => {
+        a.classList.remove('active');
+        if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+      });
+    });
+  </script>
 </body>
+
 </html>
